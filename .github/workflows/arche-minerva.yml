@@ -1,4 +1,4 @@
-name: ARCHE-Ingest
+name: ARCHE-Ingest Minerva
 
 on:
   workflow_dispatch
