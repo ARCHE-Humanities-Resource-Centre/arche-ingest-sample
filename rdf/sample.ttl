@@ -1,0 +1,6 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix acdhi: <https://id.acdh.oeaw.ac.at/> .
+@prefix acdh: <https://vocabs.acdh.oeaw.ac.at/schema#> .
+
+acdhi:someId a acdh:Resource;
+acdh:hasDescription "I am a Arche Resource."@en .
