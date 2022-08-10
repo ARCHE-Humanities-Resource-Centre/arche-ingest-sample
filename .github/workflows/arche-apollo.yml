@@ -10,24 +10,10 @@ jobs:
     steps:
     - name: Perform Checkout
       uses: actions/checkout@v2
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.8
-    - uses: actions/cache@v2
-      with:
-        path: ${{ env.pythonLocation }}
-        key: ${{ env.pythonLocation }}-${{ hashFiles('requirements_test.txt') }}  
-    - name: Install dependencies
-      run: |
-        pip install --upgrade --upgrade-strategy eager -r requirements.txt
-    - name: build ttl data
-      run: |
-        python run_ttl.py
     - name: ingestion dependencies
       run: |
         composer require "acdh-oeaw/arche-ingest:^1"
     - name: ingest resources
       run: |
-        vendor/bin/arche-import-metadata rdf/objects_kretschmer_all.ttl ${{secrets.ARCHE_APOLLO}} ${{secrets.ARCHE_LOGIN}} ${{secrets.ARCHE_PASSWORD}} --retriesOnConflict
+        vendor/bin/arche-import-metadata rdf/sample.ttl ${{secrets.ARCHE_APOLLO}} ${{secrets.ARCHE_LOGIN}} ${{secrets.ARCHE_PASSWORD}} --retriesOnConflict
 
